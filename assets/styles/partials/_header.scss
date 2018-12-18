@@ -19,7 +19,7 @@
     transform: scale(var(--scaling));
   }
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 960px) {
     position: absolute;
     top: 1rem;
     left: 1rem;
@@ -36,7 +36,7 @@
   font-weight: var(--weight-bold);
   margin: 1rem auto;
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 960px) {
     margin-top: 3rem;
   }
 }
@@ -57,7 +57,7 @@
   transition: all var(--easing) var(--speed);
   text-shadow: -1px -1px 1px var(--red-light), 0px 0px 0px var(--grey-dark);
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 960px) {
     position: absolute;
     top: 1rem;
     right: 1rem;
@@ -88,12 +88,12 @@
   }
 
   &.collapsed {
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 960px) {
       max-height: 0;
     }
   }
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 960px) {
     overflow-y: hidden;
     max-height: 1000px;
     transition: max-height var(--easing) var(--speed);
@@ -123,13 +123,13 @@
   }
 
   &.collapsed {
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 960px) {
       margin: 0 auto;
       max-height: 0;
     }
   }
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 960px) {
     position: relative;
     left: 0;
     right: 0;
@@ -140,7 +140,7 @@
     transition: all var(--easing) var(--speed);
   }
 
-  @media screen and (min-width: 800px) and (max-height: 768px) {
+  @media screen and (min-width: 960) and (max-height: 768px) {
     display: none;
   }
 }

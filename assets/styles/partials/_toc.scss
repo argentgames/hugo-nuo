@@ -1,13 +1,14 @@
 .toc{
-    @media screen and (max-width: 800px){
+    @media screen and (max-width: 960px){
       display: none;
     }
   
+    font-size: .87rem;
     position: fixed;
     right: 0;
-    padding-right: 3.25rem;
+    padding-right: 2.25rem;
     border-left-style: solid;
-    border-left-width: 1px;
+    border-left-width: 3px;
     border-left-color: var(--white-ter);
     
     & li {
