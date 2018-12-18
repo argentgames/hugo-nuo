@@ -5,7 +5,7 @@
   word-wrap: break-word;
   word-break: break-word;
   width: 75%;
-  @media screen and (max-width: 800px){
+  @media screen and (max-width: 960px){
     width: 100%;
   }
   
@@ -294,7 +294,7 @@
       max-width: 100%;
       box-shadow: 2px 20px 40px 10px var(--box-shadow-dark);
 
-      @media screen and (max-width: 800px) {
+      @media screen and (max-width: 960px) {
         box-shadow: none;
       }
     }
@@ -314,7 +314,7 @@
     max-width: 100%;
     box-shadow: 2px 20px 40px 10px var(--box-shadow-dark);
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 960px) {
       box-shadow: none;
     }
   }

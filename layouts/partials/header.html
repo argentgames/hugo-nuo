@@ -1,8 +1,8 @@
-{{- $wechat := resources.Get (.Site.Params.wechat | default "/images/qrcode.jpg") -}}
+{{/* {{- $wechat := resources.Get (.Site.Params.wechat | default "/images/qrcode.jpg") -}} */}}
 {{- $avatar := resources.Get (.Site.Params.avatar | default "/images/avatar.jpg") -}}
 
 <header class="site-header">
-  <a style="opacity:1;" href="http://argentgames.co>"><img class="avatar" src="{{ $avatar.RelPermalink }}" alt="Avatar"></a>
+  <a style="opacity:1;" href="https://argentgames.co>"><img class="avatar" src="{{ $avatar.RelPermalink }}" alt="Avatar"></a>
   {{  if eq .Kind "home" }}
   <h1 class="title">{{ .Site.Title }}</h1>
   {{ else }}
@@ -57,7 +57,7 @@
         {{- with .Site.Params.codepen -}}<li class="social-item"><a href="//codepen.io/{{ . }}" title="Codepen"><span class="icon icon-codepen"></span></a></li>{{- end -}}
         {{- with .Site.Params.codesandbox -}}<li class="social-item"><a href="//codesandbox.io/u/{{ . }}" title="CodeSandbox"><span class="icon icon-codesandbox"></span></a></li>{{- end -}}
         {{- with .Site.Params.weibo -}}<li class="social-item"><a href="//weibo.com/{{ . }}" title="Weibo"><span class="icon icon-weibo"></span></a></li>{{- end -}}
-        {{- with .Site.Params.wechat -}}<li class="social-item"><a href="{{ $wechat.RelPermalink }}" title="Wechat"><span class="icon icon-wechat"></span></a></li>{{- end -}}
+        {{/* {{- with .Site.Params.wechat -}}<li class="social-item"><a href="{{ $wechat.RelPermalink }}" title="Wechat"><span class="icon icon-wechat"></span></a></li>{{- end -}} */}}
         {{- with .Site.Params.linkedin -}}<li class="social-item"><a href="//www.linkedin.com/in/{{ . }}" title="Linkedin"><span class="icon icon-linkedin"></span></a></li>{{- end -}}
         {{- with .Site.Params.zhihu -}}<li class="social-item"><a href="//www.zhihu.com/people/{{ . }}" title="Zhihu"><span class="icon icon-zhihu"></span></a></li>{{- end -}}
         {{- with .Site.Params.douban -}}<li class="social-item"><a href="//www.douban.com/people/{{ . }}" title="Douban"><span class="icon icon-douban"></span></a></li>{{- end -}}
