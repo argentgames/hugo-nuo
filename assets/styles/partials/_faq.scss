@@ -1,0 +1,28 @@
+.faq{
+    @media screen and (max-width: 960px){
+      display: none;
+    }
+  
+    font-size: .87rem;
+
+    
+    
+    
+    & li {
+        font-size: inherit;
+    }
+
+    & a{
+        color: var(--white-ter);
+        border-bottom: 1px solid;
+        border-color: var(--red);
+    }
+    & a:hover{
+        color: var(--red);
+    }
+}
+.faq-content{
+    h1 {
+        font-size: 1.75rem;
+    }
+}
