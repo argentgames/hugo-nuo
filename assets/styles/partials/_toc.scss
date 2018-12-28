@@ -10,9 +10,12 @@
     border-left-style: solid;
     border-left-width: 3px;
     border-left-color: var(--white-ter);
+    max-width:  212px;
     
     & li {
       list-style: none;
+      line-height: 17px;
+      height: 27px;
     }
 
     & a{
