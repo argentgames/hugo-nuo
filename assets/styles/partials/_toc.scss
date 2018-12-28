@@ -1,16 +1,14 @@
 .toc{
-    @media screen and (max-width: 960px){
-      display: none;
-    }
-  
-    font-size: .87rem;
-    position: fixed;
-    right: 0;
-    padding-right: 2.25rem;
-    border-left-style: solid;
-    border-left-width: 3px;
-    border-left-color: var(--white-ter);
-    max-width:  212px;
+
+        font-size:.87rem;
+        position:fixed;
+        right:15px;
+        border-left-style:solid;
+        border-left-width:3px;
+        border-left-color:var(--white-ter);
+        max-width:212px;
+        padding-right:0rem;
+       
     
     & li {
       list-style: none;
@@ -25,3 +23,23 @@
         color: var(--red);
     }
 }
+@media screen and (max-width:1056px) {
+    .toc {
+     display:none
+    }
+   }
+   @media screen and (max-width: 1200px){
+     .toc{
+     border-left: none;
+     right:10px;
+   }
+     .toc a{
+       border-bottom: solid 1px var(--red);
+     }
+     .toc li{
+       list-style: none;
+       line-height: 20px;
+       height:30px;
+     }
+   
+   }
