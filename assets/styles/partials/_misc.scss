@@ -85,3 +85,30 @@
     }
   }
 }
+
+@media screen and (max-width: 800px){
+       .custom-gif{
+           width:100%;
+           max-height:720px;
+           display: block;
+            margin: 2rem auto;
+
+            
+
+            box-shadow: 2px 20px 40px 10px var(--box-shadow-dark);
+       } 
+    }
+
+    @media screen and (min-width: 801px){
+.custom-gif{
+    width:88%;
+    max-height:720px;
+    display: block;
+     margin: 2rem auto;
+
+     max-width: 1280px;
+
+     box-shadow: 2px 20px 40px 10px var(--box-shadow-dark);
+     max-width: 1280px;
+}
+    }
