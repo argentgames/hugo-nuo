@@ -23,7 +23,14 @@
   {{ with .Site.Params.Gitment }}<link href="//imsun.github.io" rel="dns-prefetch">{{ end }}
   {{ with .Site.GoogleAnalytics }}<link href="//www.google-analytics.com" rel="dns-prefetch">{{ end }}
   {{ with .Site.Params.baidutongji }}<link href="//hm.baidu.com" rel="dns-prefetch">{{ end }}
-
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-86974292-4', 'auto');
+    ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    
   {{ if and (eq .Kind "page") (eq .Type "post") }}
 
   <!-- Page Author & Description -->
