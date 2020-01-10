@@ -1,64 +1,72 @@
 {{ define "main" }}
-  {{ partial "header.html" . }}
-  <section class="main post-detail">
+{{ partial "header.html" . }}
+<section class="main post-detail">
     <header class="post-header">
-      <h1 class="post-title">{{ .Title }}</h1>
-      <p class="post-meta">@{{ if isset .Params "author" }}{{ .Params.author }}{{ else }}{{ .Site.Params.author }}{{ end }} · {{ .Date.Format "Jan 2, 2006" }} · {{ .ReadingTime }} min read</p>
+        <h1 class="post-title">{{ .Title }}</h1>
+        <p class="post-meta">
+            @{{ if isset .Params "author" }}{{ .Params.author }}{{ else }}{{ .Site.Params.author }}{{ end }} ·
+            {{ .Date.Format "Jan 2, 2006" }} · {{ .ReadingTime }} min read</p>
     </header>
-<!--     <aside class="toc">
+    <!--     <aside class="toc">
       {{ .TableOfContents }}
     </aside> -->
     <article class="post-content">{{ .Content }}
-      <hr>
+        <hr>
     </article>
-    
+
     <footer class="post-footer">
         <div class="post-plug">
-          <!-- insert pat/discord responsive image later-->
+            <!-- insert pat/discord responsive image later-->
             <h2>JOIN ARGENT GAMES ON:</h2>
-            <h2 class="post-sm"><a href="https://twitter.com/argent_games">AG Twitter</a><b> &nbsp;† &nbsp;</b><a href="https://twitter.com/like_a_heretic">Markus Twitter</a> &nbsp;<b>† &nbsp;</b><b> </b><a href="https://t.umblr.com/redirect?z=https%3A%2F%2Fdiscordapp.com%2Finvite%2F5SrFgVY&amp;t=ZWVlOGU0MzU3MDViZjI2ZmM4M2I4Y2MwMjQ1ZTc1OTYzYzRkZTU0MSxJU1E1Y3lmSQ%3D%3D&amp;b=t%3AxqETnnMjZZ5KgZorf-meJA&amp;p=https%3A%2F%2Fblog.argentgames.co%2Fpost%2F177518504497%2Frehollywood-character-reveal-markus&amp;m=1">Discord</a><b> &nbsp;† &nbsp;</b><a href="https://t.umblr.com/redirect?z=https%3A%2F%2Fwww.patreon.com%2Fargentgames&amp;t=YThkZGQ4NTZkM2YwODRlODhkMDA1NWE1YTYzMGIzZWY4MjE0YzI1ZCxJU1E1Y3lmSQ%3D%3D&amp;b=t%3AxqETnnMjZZ5KgZorf-meJA&amp;p=https%3A%2F%2Fblog.argentgames.co%2Fpost%2F177518504497%2Frehollywood-character-reveal-markus&amp;m=1">Patreon</a></h2>
-          </div>
-      {{ if isset .Params "tags" }}
-      <ul class="post-tags">
-        {{ range $tag := .Params.tags }}
-          <li><a href="/tags/{{ $tag | urlize }}"><span class="tag">{{ $tag | title }}</span></a></li>
-        {{ end }}
-      </ul>
-      {{ end }}
-      
-      <div class="related-content">
-        {{ $related := .Site.RegularPages.Related . | first 3 }}
-        {{ with $related }}
-        <h3>Related posts</h3>
-        <ul>
-          {{ range . }}
-          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-          {{ end }}
+            <h2 class="post-sm"><a href="https://twitter.com/argent_games">AG Twitter</a> | 
+                <a href="https://discord.gg/dFjSBxc">Discord</a> | <a href="https://www.patreon.com/argentgames">Patreon</a>
+            </h2>
+        </div>
+        {{ if isset .Params "tags" }}
+        <ul class="post-tags">
+            {{ range $tag := .Params.tags }}
+            <li><a href="/tags/{{ $tag | urlize }}"><span class="tag">{{ $tag | title }}</span></a></li>
+            {{ end }}
         </ul>
         {{ end }}
+
+        <div class="related-content">
+            {{ $related := .Site.RegularPages.Related . | first 3 }}
+            {{ with $related }}
+            <h3>Related posts</h3>
+            <ul>
+                {{ range . }}
+                <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                {{ end }}
+            </ul>
+            {{ end }}
         </div>
-        
-      <p class="post-copyright">
-        {{ if .Site.Copyright }}{{ .Site.Copyright }}{{ end }}{{ if gt (div (sub now.Unix .Lastmod.Unix) 86400) 100 }}This post was published <strong>{{ div (sub now.Unix .Lastmod.Unix) 86400 }}</strong> days ago, content in the post may be inaccurate, even wrong now, please take risk yourself.{{ end }}
-      </p>
+
+        <p class="post-copyright">
+            {{ if .Site.Copyright }}{{ .Site.Copyright }}{{ end }}{{ if gt (div (sub now.Unix .Lastmod.Unix) 86400) 100 }}This
+            post was published <strong>{{ div (sub now.Unix .Lastmod.Unix) 86400 }}</strong> days ago, content in the
+            post may be inaccurate, even wrong now, please take risk yourself.{{ end }}
+        </p>
     </footer>
     {{ if ne .Params.comments false }}
-      {{ if .Site.Params.changyan }}
-      <div id="cyReward" role="cylabs" data-use="reward"></div>
-      <script src="//changyan.itc.cn/js/lib/jquery.js"></script>
-      <script src="//changyan.sohu.com/js/changyan.labs.https.js?appid={{ .Site.Params.changyanId }}"></script>
-      <div id="SOHUCS" sid="{{ .URL }}" ></div>
-      <script>
-      (function(){
-      var appid = '{{ .Site.Params.changyanId }}';
-      var conf = '{{ .Site.Params.changyanConf }}';
-      var width = window.innerWidth || document.documentElement.clientWidth;
-      if (width < 960) {
-      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
-      {{ else if .Site.Params.Gitment }}{{ partial "gitment.html" . }}
-      {{ else if .Site.DisqusShortname }}{{ template "_internal/disqus.html" . }}
-      {{ else }}{{ end }}
+    {{ if .Site.Params.changyan }}
+    <div id="cyReward" role="cylabs" data-use="reward"></div>
+    <script src="//changyan.itc.cn/js/lib/jquery.js"></script>
+    <script src="//changyan.sohu.com/js/changyan.labs.https.js?appid={{ .Site.Params.changyanId }}"></script>
+    <div id="SOHUCS" sid="{{ .URL }}"></div>
+    <script>
+        (function () {
+            var appid = '{{ .Site.Params.changyanId }}';
+            var conf = '{{ .Site.Params.changyanConf }}';
+            var width = window.innerWidth || document.documentElement.clientWidth;
+            if (width < 960) {
+                window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>');
+            } else { var loadJs = function (d, a) { var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement; var b = document.createElement("script"); b.setAttribute("type", "text/javascript"); b.setAttribute("charset", "UTF-8"); b.setAttribute("src", d); if (typeof a === "function") { if (window.attachEvent) { b.onreadystatechange = function () { var e = b.readyState; if (e === "loaded" || e === "complete") { b.onreadystatechange = null; a() } } } else { b.onload = a } } c.appendChild(b) }; loadJs("https://changyan.sohu.com/upload/changyan.js", function () { window.changyan.api.config({ appid: appid, conf: conf }) }); }
+        })(); </script>
+    {{ else if .Site.Params.Gitment }}{{ partial "gitment.html" . }}
+    {{ else if .Site.DisqusShortname }}{{ template "_internal/disqus.html" . }}
+    {{ else }}{{ end }}
     {{ end }}
-  </section>
-  {{ partial "footer.html" . }}
+</section>
+{{ partial "footer.html" . }}
 {{ end }}
