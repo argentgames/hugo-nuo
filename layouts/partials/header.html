@@ -58,7 +58,7 @@
 
 <!--End mc_embed_signup-->
 <h2 class="offscreen">Social Networks</h2>
-    <ul class="social-list" style="display: flex;list-style: none;justify-content: space-around;">
+    <ul class="social-list" style="display: flex;list-style: none;justify-content: space-around;padding-left: 0;">
         {{- with .Site.Params.email -}}<li class="social-item"><a href="mailto:{{ . }}" title="Email"><span class="icon icon-email"></span></a></li>{{- end -}}
         {{- with .Site.Params.github -}}<li class="social-item"><a href="//github.com/{{ . }}" title="GitHub"><span class="icon icon-github"></span></a></li>{{- end -}}
         {{- with .Site.Params.twitter -}}<li class="social-item"><a href="//twitter.com/{{ . }}" title="Twitter"><span class="icon icon-twitter"></span></a></li>{{- end -}}
